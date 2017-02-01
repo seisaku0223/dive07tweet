@@ -1,15 +1,14 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4 show-left">
+    <div class="col-md-4 panel panel-default show-left">
       <h1>DIVE07課題</h1>
-      <p>
-        投稿一覧
-      </p>
+      <p>投稿一覧画面</p>
+      <p>投稿数 <%= @tweets.count %></p>
     </div>
-    <div class="col-md-8 show-right">
-      <%= link_to "つぶやきを投稿する", new_tweet_path, class: 'btn btn-default' %>
+    <div class="col-md-8 panel panel-default show-right">
       <% @tweets.each do |tweet| %>
       <div class="right-word">
+        <div class="time-word"><%= time_ago_in_words(tweet.created_at)+"前" %></div>
         <p><%= tweet.content %></p>
         <%= link_to "編集", edit_tweet_path(tweet.id), class: 'btn btn-default btn-sm btn-success' %>
         <%= link_to "削除", tweet_path(tweet.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>

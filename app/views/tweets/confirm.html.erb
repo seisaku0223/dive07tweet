@@ -1,9 +1,11 @@
 <div class="container">
-  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 word-block">
     <h3>以下の内容で投稿しますか？</h3>
     <%= form_for(@tweet) do |f| %>
-      <%= f.hidden_field :content %>
-      <p>本文：<%= @tweet.content %></p>
+      <div class="well well-sm">
+        <%= f.hidden_field :content %>
+        <p><%= @tweet.content %></p>
+      </div>
       <%= f.submit "投稿する", class: 'btn btn-primary btn-block'  %>
     <% end %>
     <%= form_for(@tweet, url: new_tweet_path, method: 'get') do |f| %>
