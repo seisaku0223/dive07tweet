@@ -17,7 +17,7 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweets_params)
     if @tweet.save
-      redirect_to tweets_path, notice:"つぶやきを送信しました"
+      redirect_to tweets_path, notice:"内容を投稿しました"
     else
       render 'new'
     end
@@ -28,7 +28,7 @@ class TweetsController < ApplicationController
   
   def update
     if @tweet.update(tweets_params)
-      redirect_to tweets_path, notice:"つぶやきを編集しました"
+      redirect_to tweets_path, notice:"内容を編集しました"
     else
       render 'edit'
     end
